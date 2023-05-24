@@ -61,9 +61,21 @@ function randomNUmber(minNum,maxNum){
 }
 
 /*faccio funzione per generare numeri diversi tra di loro*/
-function randomDifferentNumber(minNum,maxNum,elementi){
+function randomDifferentNumber(minNum,maxNum,elements){
+ 
+    let ArrayRandom=[];
 
+    while(ArrayRandom.length<elements){
+       
+        let generatedNumber=randomNUmber(minNum,maxNum)
+        if(!(ArrayRandom.includes(generatedNumber))){
+            ArrayRandom.push(generatedNumber);
+        } 
+    }
+    return ArrayRandom;
 }
 
+gino=randomDifferentNumber(1,100,16);
+console.log(gino)
 
    
