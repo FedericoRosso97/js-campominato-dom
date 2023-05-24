@@ -1,4 +1,5 @@
-
+gino=Math.floor(0.234);
+console.log(gino);
 const button=document.querySelector('button')
 const main=document.querySelector('main');
 
@@ -52,5 +53,17 @@ function creaElemento(elementi,classe){
 
     return myElement;
 }
+
+function randomNUmber(minNum,maxNum){
+    let numberRandom=Math.floor(Math.random()*(maxNum-minNum)+minNum);
+
+    return numberRandom;
+}
+
+/*faccio funzione per generare numeri diversi tra di loro*/
+function randomDifferentNumber(minNum,maxNum,elementi){
+
+}
+
 
    
