@@ -16,6 +16,10 @@
     color:white;
 }
 
+.red{
+    background-color:red;
+    color:white;
+}
 
 nav,footer{
     height: 100px;

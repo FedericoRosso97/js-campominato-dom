@@ -28,20 +28,29 @@ const griglia=creaElemento('div','grid');
 main.append(griglia);
 
 let number=0;
+let bomba=randomUnicNumber(1,100,16);
+console.log(bomba)   
 for(let i=0;i<durata;i++){
     let square=creaElemento('div',squareClass);
     
        griglia.append(square);
     
        square.addEventListener('click',function(){
-       
         square.classList.toggle('blu');
-        console.log(i+1);
+        
+        let indice=i+1;
+        console.log(indice);
 
+        if(bomba.includes(indice)){
+            square.classList.toggle('red');
+            square.classList.remove('blu');
+        }  
     });    
-    
     number=number+1;
-     square.append(number);
+    square.append(number);
+   
+
+    
 }
 })
 
@@ -61,7 +70,7 @@ function randomNUmber(minNum,maxNum){
 }
 
 /*faccio funzione per generare numeri diversi tra di loro*/
-function randomDifferentNumber(minNum,maxNum,elements){
+function randomUnicNumber(minNum,maxNum,elements){
  
     let ArrayRandom=[];
 
@@ -75,7 +84,5 @@ function randomDifferentNumber(minNum,maxNum,elements){
     return ArrayRandom;
 }
 
-gino=randomDifferentNumber(1,100,16);
-console.log(gino)
 
    
