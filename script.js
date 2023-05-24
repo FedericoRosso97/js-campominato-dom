@@ -6,19 +6,22 @@ const main=document.querySelector('main');
 button.addEventListener('click',function(){
     main.innerHTML='';
  /*creo le 3 diverse difficoltà */
-    let Input=document.querySelector('select');
+    const Input=document.querySelector('select');
     let difficulty=Input.value;
     let durata;
-    
+    let bombe;
     if(difficulty=='facile'){
         durata=49;
         squareClass='box3';
+        bombe=9;
        }else if(difficulty=='media'){
            durata=81;
            squareClass='box2';
+           bombe=10;
        }else if(difficulty=='difficile'){
            durata=100;
            squareClass='box';
+           bombe=16;
        }
        console.log(difficulty);
 
@@ -28,14 +31,14 @@ const griglia=creaElemento('div','grid');
 main.append(griglia);
 
 let number=0;
-let bomba=randomUnicNumber(1,100,16);
+let bomba=randomUnicNumber(1,durata,bombe);
 console.log(bomba)   
 for(let i=0;i<durata;i++){
     let square=creaElemento('div',squareClass);
     
        griglia.append(square);
-    
-       square.addEventListener('click',function(){
+     finePartita=false;
+     if(finePartita=false){ square.addEventListener('click',function(){
         square.classList.toggle('blu');
         
         let indice=i+1;
@@ -44,16 +47,15 @@ for(let i=0;i<durata;i++){
         if(bomba.includes(indice)){
             square.classList.toggle('red');
             square.classList.remove('blu');
+            finePartita=true;
         }  
     });    
     number=number+1;
     square.append(number);
-   
-
-    
 }
-})
+}})
 
+      
 
 /*funzioni */
 function creaElemento(elementi,classe){
